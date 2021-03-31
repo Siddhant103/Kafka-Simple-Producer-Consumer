@@ -27,6 +27,9 @@ public class ProducerDemoWithCallbacks {
         properties.setProperty(ProducerConfig.RETRIES_CONFIG, Integer.toString(Integer.MAX_VALUE));
         properties.setProperty(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, "5");//kafka 2.0 -> so we can set to 5. Use 1 otherwise
 
+        //HIgh throughput settings at the expense of a bit of latency and CPU usage
+        properties.setProperty(ProducerConfig.COMPRESSION_TYPE_CONFIG, "snappy");
+
         /*
         Create a Producer<String, String> as key and value both are strings
          */
